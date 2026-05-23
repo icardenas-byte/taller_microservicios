@@ -1,19 +1,22 @@
 :root {
-  --bg: #f6f7f9;
-  --panel: #ffffff;
-  --text: #1f2933;
-  --muted: #667085;
-  --line: #d9dee7;
-  --brand: #0f766e;
-  --brand-dark: #115e59;
-  --danger: #b42318;
-  --warning: #b54708;
-  --ok: #027a48;
-  --active: #175cd3;
+  --bg: #05010a;
+  --panel: #0b0b14;
+  --text: #e2e2ff;
+  --muted: #8b8bb5;
+  --line: #2a2a40;
+
+  --brand: #6a00ff;        
+  --brand-dark: #4b00b8;
+  --blue-neon: #00b7ff;
+  --danger: #ff2e63;
+  --warning: #ff9f1c;
+  --ok: #00ffa6;
+  --active: #3f8cff;
 }
 
 * {
   box-sizing: border-box;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 body {
@@ -25,11 +28,12 @@ body {
 
 .topbar {
   align-items: center;
-  background: #ffffff;
+  background: #0d0d18;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   padding: 20px 28px;
+  box-shadow: 0 0 12px #6a00ff33;
 }
 
 h1, h2, p {
@@ -38,10 +42,14 @@ h1, h2, p {
 
 h1 {
   font-size: 26px;
+  color: var(--blue-neon);
+  text-shadow: 0 0 8px var(--blue-neon);
 }
 
 h2 {
   font-size: 18px;
+  color: var(--brand);
+  text-shadow: 0 0 6px var(--brand);
 }
 
 .topbar p {
@@ -61,6 +69,11 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 18px;
+  box-shadow: 0 0 12px #6a00ff22;
+}
+
+.panel:hover {
+  box-shadow: 0 0 18px #6a00ff55;
 }
 
 .main-panel {
@@ -105,16 +118,26 @@ input, select, textarea {
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--text);
+  background: #0f0f1f;
   font: inherit;
   min-height: 38px;
   padding: 8px 10px;
   width: 100%;
+  box-shadow: 0 0 8px #6a00ff22 inset;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 12px var(--brand);
 }
 
 textarea {
   resize: vertical;
 }
 
+/* Botones SIN transiciones extra */
 button {
   background: var(--brand);
   border: 0;
@@ -131,12 +154,12 @@ button:hover {
 }
 
 .secondary {
-  background: #e7eaef;
+  background: #1a1a2b;
   color: var(--text);
 }
 
 .secondary:hover {
-  background: #d7dce5;
+  background: #24243a;
 }
 
 .icon-button {
@@ -163,6 +186,13 @@ button:hover {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 12px;
+  background: #0d0d18;
+  box-shadow: 0 0 10px #6a00ff22;
+}
+
+.item:hover,
+.sprint-column:hover {
+  box-shadow: 0 0 16px #6a00ff55;
 }
 
 .item-header,
@@ -177,6 +207,8 @@ button:hover {
 .story h3 {
   font-size: 15px;
   margin: 0;
+  color: var(--blue-neon);
+  text-shadow: 0 0 6px var(--blue-neon);
 }
 
 .item p,
@@ -202,11 +234,11 @@ button:hover {
 }
 
 .danger:hover {
-  background: #912018;
+  background: #d61b4f;
 }
 
 .sprint-column {
-  background: #fbfcfe;
+  background: #0f0f1f;
 }
 
 .sprint-column h3 {
@@ -214,34 +246,39 @@ button:hover {
 }
 
 .story {
-  background: #ffffff;
+  background: #0b0b14;
   border: 1px solid var(--line);
   border-left: 5px solid var(--brand);
   border-radius: 8px;
   margin-top: 8px;
   padding: 10px;
+  box-shadow: 0 0 10px #6a00ff33;
 }
 
 .story[data-state="finalizada"] {
   border-left-color: var(--ok);
+  box-shadow: 0 0 12px #00ffa633;
 }
 
 .story[data-state="activa"] {
   border-left-color: var(--active);
+  box-shadow: 0 0 12px #3f8cff33;
 }
 
 .story[data-state="impedimento"] {
   border-left-color: var(--warning);
+  box-shadow: 0 0 12px #ff9f1c33;
 }
 
 .badge {
-  background: #eef2f6;
+  background: #1a1a2b;
   border-radius: 999px;
   color: var(--text);
   display: inline-block;
   font-size: 12px;
   margin-top: 7px;
   padding: 4px 8px;
+  box-shadow: 0 0 8px #6a00ff55;
 }
 
 .metrics {
@@ -254,11 +291,15 @@ button:hover {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 10px;
+  background: #0d0d18;
+  box-shadow: 0 0 12px #6a00ff22;
 }
 
 .metric strong {
   display: block;
   font-size: 22px;
+  color: var(--blue-neon);
+  text-shadow: 0 0 6px var(--blue-neon);
 }
 
 .metric span {
@@ -281,10 +322,11 @@ th, td {
   font-size: 13px;
   padding: 8px 6px;
   text-align: left;
+  color: var(--text);
 }
 
 .toast {
-  background: #101828;
+  background: #0d0d18;
   border-radius: 6px;
   bottom: 18px;
   color: #ffffff;
@@ -293,6 +335,7 @@ th, td {
   padding: 10px 14px;
   position: fixed;
   transform: translateX(-50%);
+  box-shadow: 0 0 12px var(--brand);
 }
 
 .toast.show {
