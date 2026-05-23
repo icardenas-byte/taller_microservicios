@@ -78,6 +78,10 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         array (
             'Brick\\Math\\' => 11,
         ),
+        'A' =>
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -195,9 +199,24 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'App\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
     );
 
     public static $classMap = array (
+        'App\\Controllers\\HistoriasController' => __DIR__ . '/../..' . '/app/Controllers/HistoriasController.php',
+        'App\\Controllers\\InformesController' => __DIR__ . '/../..' . '/app/Controllers/InformesController.php',
+        'App\\Controllers\\SprintsController' => __DIR__ . '/../..' . '/app/Controllers/SprintsController.php',
+        'App\\Models\\Historia' => __DIR__ . '/../..' . '/app/Models/Historia.php',
+        'App\\Models\\Repositories\\HistoriasRepository' => __DIR__ . '/../..' . '/app/Models/Repositories/HistoriasRepository.php',
+        'App\\Models\\Repositories\\SprintsRepository' => __DIR__ . '/../..' . '/app/Models/Repositories/SprintsRepository.php',
+        'App\\Models\\Sprint' => __DIR__ . '/../..' . '/app/Models/Sprint.php',
+        'App\\Presentation\\Middlewares\\CorsMiddleware' => __DIR__ . '/../..' . '/app/Presentation/Middlewares/CorsMiddleware.php',
+        'App\\Shared\\Http\\Request' => __DIR__ . '/../..' . '/app/Shared/Http/Request.php',
+        'App\\Shared\\Http\\Response' => __DIR__ . '/../..' . '/app/Shared/Http/Response.php',
+        'App\\Shared\\Http\\Router' => __DIR__ . '/../..' . '/app/Shared/Http/Router.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

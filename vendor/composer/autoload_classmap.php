@@ -6,6 +6,17 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\HistoriasController' => $baseDir . '/app/Controllers/HistoriasController.php',
+    'App\\Controllers\\InformesController' => $baseDir . '/app/Controllers/InformesController.php',
+    'App\\Controllers\\SprintsController' => $baseDir . '/app/Controllers/SprintsController.php',
+    'App\\Models\\Historia' => $baseDir . '/app/Models/Historia.php',
+    'App\\Models\\Repositories\\HistoriasRepository' => $baseDir . '/app/Models/Repositories/HistoriasRepository.php',
+    'App\\Models\\Repositories\\SprintsRepository' => $baseDir . '/app/Models/Repositories/SprintsRepository.php',
+    'App\\Models\\Sprint' => $baseDir . '/app/Models/Sprint.php',
+    'App\\Presentation\\Middlewares\\CorsMiddleware' => $baseDir . '/app/Presentation/Middlewares/CorsMiddleware.php',
+    'App\\Shared\\Http\\Request' => $baseDir . '/app/Shared/Http/Request.php',
+    'App\\Shared\\Http\\Response' => $baseDir . '/app/Shared/Http/Response.php',
+    'App\\Shared\\Http\\Router' => $baseDir . '/app/Shared/Http/Router.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',
     'Brick\\Math\\BigNumber' => $vendorDir . '/brick/math/src/BigNumber.php',
