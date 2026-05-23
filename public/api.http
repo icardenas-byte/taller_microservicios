@@ -1,0 +1,79 @@
+### Abrir frontend
+GET http://127.0.0.1:8000/
+
+### Consultar sprints
+GET http://127.0.0.1:8000/api/sprints
+
+### Registrar sprint
+POST http://127.0.0.1:8000/api/sprints
+Content-Type: application/json
+
+{
+  "nombre": "Sprint 1",
+  "fecha_inicio": "2026-05-22",
+  "fecha_fin": "2026-06-05"
+}
+
+### Consultar sprint
+GET http://127.0.0.1:8000/api/sprints/1
+
+### Modificar sprint
+PUT http://127.0.0.1:8000/api/sprints/1
+Content-Type: application/json
+
+{
+  "nombre": "Sprint 1 - Ajustado",
+  "fecha_inicio": "2026-05-22",
+  "fecha_fin": "2026-06-07"
+}
+
+### Borrar sprint
+DELETE http://127.0.0.1:8000/api/sprints/1
+
+### Consultar historias
+GET http://127.0.0.1:8000/api/historias
+
+### Consultar historias agrupadas por sprint
+GET http://127.0.0.1:8000/api/historias/agrupadas
+
+### Registrar historia
+POST http://127.0.0.1:8000/api/historias
+Content-Type: application/json
+
+{
+  "titulo": "Crear tablero de historias",
+  "descripcion": "Como estudiante quiero registrar historias para controlar el avance del sprint.",
+  "responsable": "Juan",
+  "estado": "nueva",
+  "puntos": 5,
+  "fecha_creacion": "2026-05-22",
+  "fecha_finalizacion": null,
+  "sprint_id": 1
+}
+
+### Consultar historia
+GET http://127.0.0.1:8000/api/historias/1
+
+### Modificar historia
+PUT http://127.0.0.1:8000/api/historias/1
+Content-Type: application/json
+
+{
+  "titulo": "Crear tablero de historias",
+  "descripcion": "Como estudiante quiero ver historias organizadas por sprint.",
+  "responsable": "Pepe",
+  "estado": "activa",
+  "puntos": 8,
+  "fecha_creacion": "2026-05-22",
+  "fecha_finalizacion": null,
+  "sprint_id": 1
+}
+
+### Borrar historia
+DELETE http://127.0.0.1:8000/api/historias/1
+
+### Consultar informe general
+GET http://127.0.0.1:8000/api/informes
+
+### Consultar informe por sprint
+GET http://127.0.0.1:8000/api/informes?sprint_id=1

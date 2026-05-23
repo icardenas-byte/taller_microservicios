@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestor de Historias de Usuario</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Gestor de Historias de Usuario</h1>
+      <p>Control de historias por sprint, responsable, estado y puntos.</p>
+    </div>
+    <button id="btn-actualizar" class="icon-button" type="button" title="Actualizar datos" aria-label="Actualizar datos">
+      ↻
+    </button>
+  </header>
+  <main class="layout">
+    <section class="panel" aria-labelledby="titulo-sprints">
+      <header class="section-title">
+        <h2 id="titulo-sprints">Sprints</h2>
+        <span id="contador-sprints" class="badge" aria-live="polite">0</span>
+      </header>
+      <form id="formulario-sprint" class="form" novalidate>
+        <input type="hidden" id="sprint-id" name="sprint-id">
+        <div class="form-group">
+          <label for="sprint-nombre">Nombre</label>
+          <input 
+            id="sprint-nombre" 
+            name="nombre" 
+            type="text" 
+            required 
+            maxlength="100"
+            autocomplete="off"
+          >
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sprint-inicio">Inicio</label>
+            <input 
+              id="sprint-inicio" 
+              name="fecha_inicio" 
+              type="date" 
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="sprint-fin">Fin</label>
+            <input 
+              id="sprint-fin" 
+              name="fecha_fin" 
+              type="date" 
+              required
+            >
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit">Guardar sprint</button>
+          <button type="reset" id="btn-cancelar-sprint" class="secondary">Cancelar</button>
+        </div>
+      </form>
+      <div id="lista-sprints" class="list" role="list" aria-label="Listado de sprints"></div>
+    </section>
+    <section class="panel panel-principal" aria-labelledby="titulo-historias">
+      <header class="section-title">
+        <h2 id="titulo-historias">Historias</h2>
+        <span id="contador-historias" class="badge" aria-live="polite">0</span>
+      </header>
+      <form id="formulario-historia" class="form form-grid" novalidate>
+        <input type="hidden" id="historia-id" name="historia-id">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="historia-titulo">Título</label>
+            <input 
+              id="historia-titulo" 
+              name="titulo" 
+              type="text" 
+              required 
+              maxlength="150"
+              autocomplete="off"
+            >
+          </div>
+          <div class="form-group">
+            <label for="historia-responsable">Responsable</label>
+            <input 
+              id="historia-responsable" 
+              name="responsable" 
+              type="text" 
+              required 
+              maxlength="100"
+              autocomplete="name"
+            >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="historia-sprint">Sprint</label>
+            <select id="historia-sprint" name="sprint_id" required></select>
+          </div>
+          <div class="form-group">
+            <label for="historia-estado">Estado</label>
+            <select id="historia-estado" name="estado" required>
+              <option value="" disabled selected>Seleccione estado</option>
+              <option value="nueva">Nueva</option>
+              <option value="activa">Activa</option>
+              <option value="finalizada">Finalizada</option>
+              <option value="impedimento">Impedimento</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="historia-puntos">Puntos</label>
+            <input 
+              id="historia-puntos" 
+              name="puntos" 
+              type="number" 
+              min="1" 
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="historia-creacion">Creación</label>
+            <input 
+              id="historia-creacion" 
+              name="fecha_creacion" 
+              type="date" 
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="historia-finalizacion">Finalización</label>
+            <input 
+              id="historia-finalizacion" 
+              name="fecha_finalizacion" 
+              type="date"
+            >
+          </div>
+        </div>
+        <div class="form-group form-group-completa">
+          <label for="historia-descripcion">Descripción</label>
+          <textarea 
+            id="historia-descripcion" 
+            name="descripcion" 
+            rows="3" 
+            required
+          ></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">Guardar historia</button>
+          <button type="reset" id="btn-cancelar-historia" class="secondary">Cancelar</button>
+        </div>
+      </form>
+      <div id="historias-por-sprint" class="sprint-board" role="region" aria-label="Historias agrupadas por sprint"></div>
+    </section>
+    <section class="panel" aria-labelledby="titulo-informes">
+      <header class="section-title">
+        <h2 id="titulo-informes">Informe</h2>
+        <label for="informe-sprint" class="visually-hidden">Filtrar por sprint</label>
+        <select id="informe-sprint" name="sprint_filtro"></select>
+      </header>
+      <div id="informe-general" class="metrics" role="region" aria-label="Métricas generales"></div>
+      <div id="informe-responsables" class="table-wrap" role="region" aria-label="Detalle por responsable"></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
